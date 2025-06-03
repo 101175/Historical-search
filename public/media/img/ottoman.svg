@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600">
+	<rect width="900" height="600" fill="#cb2027"/>
+	<ellipse cx="450" cy="300" rx="370" ry="180" fill="#009530"/>
+	<use xlink:href="#crescent" x="-190"/>
+	<g id="crescent">
+		<circle cx="458" cy="300" r="100" fill="#fcdd09"/>
+		<circle cx="484" cy="300" r="80" fill="#009530"/>
+	</g>
+	<use xlink:href="#crescent" x="190"/>
+</svg>
