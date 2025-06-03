@@ -1,81 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History Search</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      animation: changeBg 30s infinite;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History Search</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: changeBg 30s infinite;
+            background-color: transparent;
+        }
 
-    @keyframes changeBg {
-      0% { background-image: url('public/img/Declaration_of_Independence.jpg'); }
-      25% { background-image: url('public/img/Kaiserkroenung.jpg'); }
-      50% { background-image: url('public/img/roman-empire.webp'); }
-      75% { background-image: url('public/img/waterloo.webp'); }
-      100% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2c/Wrightflyer.jpg'); }
-    }
+        @keyframes changeBg {
+            0% {
+                background-image: url('media/img/Declaration_of_Independence.jpg');
+            }
 
-    .search-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-    }
+            25% {
+                background-image: url('media/img/Kaiserkroenung.jpg');
+            }
 
-    h1 {
-      color: white;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    }
+            50% {
+                background-image: url('media/img/roman-empire.webp');
+            }
 
-    form {
-      width: 50%;
-    }
+            75% {
+                background-image: url('media/img/waterloo.webp');
+            }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 30px;
-      outline: none;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
-
-    input[type="text"]:focus {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    }
-  </style>
+            100% {
+                background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2c/Wrightflyer.jpg');
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="background"></div>
-  <div class="search-container">
-    <h1>Explore History</h1>
-    <form action="/search" method="GET">
-      <input type="text" name="q" placeholder="Search historical events or figures..." required />
-    </form>
-  </div>
+    <div class="background"></div>
+    <div class="search-container">
+        <h1>Explore History</h1>
+        <form action="/search" method="GET">
+            <input type="text" name="q" placeholder="Search historical events or figures..." required />
+        </form>
+    </div>
 </body>
 </html>

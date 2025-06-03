@@ -1,0 +1,43 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    form {
+      width: 50%;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+      border: 3px solid black;
+      border-radius: 30px;
+      outline: none;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
