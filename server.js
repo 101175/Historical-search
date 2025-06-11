@@ -17,7 +17,7 @@ app.get('/search', async (req, res) => {
   try {
     const searchResults = await wiki().search(query);
     if (searchResults.results.length === 0) {
-      res.send(`<h1>No results found for "${query}".</h1><a href="/">🔙 Back</a>`);
+      res.send(`<h1>No results found for "${query}".</h1><a href="/">Back</a>`);
       return;
     }
 
