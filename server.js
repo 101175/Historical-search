@@ -27,10 +27,24 @@ app.get('/search', async (req, res) => {
     }).join('');
 
     res.send(`
+  <html>
+    <head>
+      <title>Search Results</title>
+      <link rel="stylesheet" href="/index.css">
+    </head>
+    <body class="search-container">
       <h1>Search results for "${query}"</h1>
-      <ul>${resultsHtml}</ul>
+      <ul>
+        ${searchResults.results.slice(0, 10).map(title => `
+          <a class="result-link" href="/page?title=${encodeURIComponent(title)}">
+            <div class="result-title">${title}</div>
+          </a>
+        `).join('')}
+      </ul>
       <a href="/">Back</a>
-    `);
+    </body>
+  </html>
+`);
   } catch (error) {
     res.status(500).send('An error occurred: ' + error.message);
   }
@@ -54,12 +68,33 @@ app.get('/page', async (req, res) => {
     }
 
     res.send(`
-      <a href="/search?q=${encodeURIComponent(title)}">Back to results</a>
-      <h1>${title}</h1>
-      ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="max-width:400px; display:block; margin-bottom:20px;">` : ''}
-      <p>${summary}</p>
+  <html>
+    <head>
+      <title>${title}</title>
+      <link rel="stylesheet" href="/index.css">
+    </head>
+    <body class="search-container">
+      <div class="topic-summary">
+        <a href="/search?q=${encodeURIComponent(title)}">← Back to results</a>
+        <h1>${title}</h1>
+        ${imageUrl ? `<img src="${imageUrl}" alt="${title}">` : ''}
+        <p>${summary}</p>
+      </div>
+
+      <div class="other-topics">
+        <h2>More on "${title.split(' ')[0]}"</h2>
+        ${
+          // Just show some alternative topic buttons (same term)
+          searchResults.results.slice(1, 4).map(t =>
+            `<a href="/page?title=${encodeURIComponent(t)}">${t}</a>`
+          ).join('')
+        }
+      </div>
+
       <a href="/">🏠 Home</a>
-    `);
+    </body>
+  </html>
+`);
   } catch (error) {
     res.status(404).send(`Could not find page for "${title}". <a href="/">Home</a>`);
   }
