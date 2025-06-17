@@ -30,7 +30,7 @@ app.get('/search', async (req, res) => {
   <html>
     <head>
       <title>Search Results</title>
-      <link rel="stylesheet" href="/index.css">
+      <link rel="stylesheet" href="/wikipedia.css">
     </head>
     <body class="search-container">
       <h1>Search results for "${query}"</h1>
@@ -57,44 +57,49 @@ app.get('/page', async (req, res) => {
     const page = await wiki().page(title);
     const summary = await page.summary();
     let imageUrl = '';
+    let relatedTopics = [];
 
     try {
       const images = await page.images();
-      // Pick a suitable image (skip SVGs and logos)
       imageUrl = images.find(img => /\.(jpg|jpeg|png|gif)$/i.test(img)) || '';
     } catch {
-      // fallback no image
       imageUrl = '';
     }
 
+    try {
+      const searchResults = await wiki().search(title.split(' ')[0]);
+      relatedTopics = searchResults.results.filter(t => t !== title).slice(0, 3);
+    } catch {
+      relatedTopics = [];
+    }
+
     res.send(`
-  <html>
-    <head>
-      <title>${title}</title>
-      <link rel="stylesheet" href="/index.css">
-    </head>
-    <body class="search-container">
-      <div class="topic-summary">
-        <a href="/search?q=${encodeURIComponent(title)}">← Back to results</a>
-        <h1>${title}</h1>
-        ${imageUrl ? `<img src="${imageUrl}" alt="${title}">` : ''}
-        <p>${summary}</p>
-      </div>
+      <html>
+        <head>
+          <title>${title}</title>
+          <link rel="stylesheet" href="/wikipedia.css">
+        </head>
+        <body class="search-container">
+          <div class="topic-summary">
+            <a href="/search?q=${encodeURIComponent(title)}">← Back to results</a>
+            <h1>${title}</h1>
+            ${imageUrl ? `<img src="${imageUrl}" alt="${title}">` : ''}
+            <p>${summary}</p>
+          </div>
 
-      <div class="other-topics">
-        <h2>More on "${title.split(' ')[0]}"</h2>
-        ${
-          // Just show some alternative topic buttons (same term)
-          searchResults.results.slice(1, 4).map(t =>
-            `<a href="/page?title=${encodeURIComponent(t)}">${t}</a>`
-          ).join('')
-        }
-      </div>
+          <div class="other-topics">
+            <h2>More on "${title.split(' ')[0]}"</h2>
+            ${
+              relatedTopics.map(t =>
+                `<a href="/page?title=${encodeURIComponent(t)}">${t}</a>`
+              ).join('')
+            }
+          </div>
 
-      <a href="/">🏠 Home</a>
-    </body>
-  </html>
-`);
+          <a href="/">Home</a>
+        </body>
+      </html>
+    `);
   } catch (error) {
     res.status(404).send(`Could not find page for "${title}". <a href="/">Home</a>`);
   }
