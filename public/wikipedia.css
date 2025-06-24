@@ -109,30 +109,26 @@ ul {
   color: #2e2b25;
 }
 
-.other-topics {
-  margin-top: 40px;
+.related-cloud-wrapper {
+  margin: 60px auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.other-topics h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #403525;
+#tagcanvas {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  opacity: 0.7;
+  border: 2px dashed #bfae88;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(60, 40, 10, 0.1);
 }
 
-.other-topics a {
-  display: inline-block;
-  background-color: #f5ede0;
-  color: #5a3b14;
-  border: 1px solid #c2b28e;
-  padding: 7px 12px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-radius: 3px;
-  font-size: 0.9rem;
-}
-
-.other-topics a:hover {
-  background-color: #e6ddc8;
+#taglist {
+  display: none; /* required for TagCanvas */
 }
 
 a[href="/"] {

@@ -78,6 +78,7 @@ app.get('/page', async (req, res) => {
         <head>
           <title>${title}</title>
           <link rel="stylesheet" href="/wikipedia.css">
+          <script src="https://www.goat1000.com/tagcanvas.min.js"></script>
         </head>
         <body class="search-container">
           <div class="topic-summary">
@@ -87,16 +88,18 @@ app.get('/page', async (req, res) => {
             <p>${summary}</p>
           </div>
 
-          <div class="other-topics">
-            <h2>More on "${title.split(' ')[0]}"</h2>
-            ${
-              relatedTopics.map(t =>
-                `<a href="/page?title=${encodeURIComponent(t)}">${t}</a>`
-              ).join('')
-            }
+          <div class="related-cloud-wrapper">
+            <canvas width="500" height="500" id="tagcanvas">
+                <ul id="taglist">
+                    ${relatedTopics.map(t => `<li><a href="/page?title=${encodeURIComponent(t)}">${t}</a></li>`).join('')}
+                </ul>
+            </canvas>
           </div>
 
+
           <a href="/">Home</a>
+          <script src="js/wordcloud.js"></script>
+
         </body>
       </html>
     `);
