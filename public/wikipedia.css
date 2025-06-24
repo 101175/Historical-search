@@ -7,13 +7,13 @@
 html,
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: #f8f9fa;
-  color: #202122;
-  line-height: 1.6;
+  background-color: #f4f1e9; /* parchment-like background */
+  color: #2e2b25;
+  line-height: 1.7;
 }
 
 a {
-  color: #0645ad;
+  color: #6b4e16; /* warm historical tone */
   text-decoration: none;
 }
 
@@ -24,17 +24,20 @@ a:hover {
 .search-container {
   max-width: 960px;
   margin: 40px auto;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #a2a9b1;
-  border-radius: 4px;
+  padding: 30px;
+  background-color: #fffdf6;
+  border: 2px solid #d1bfa3;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
 }
 
 h1 {
   font-size: 2rem;
   font-weight: normal;
   margin-bottom: 20px;
-  color: #202122;
+  color: #3b2e20;
+  border-bottom: 1px solid #c7b299;
+  padding-bottom: 10px;
 }
 
 form {
@@ -43,10 +46,11 @@ form {
 
 input[type="text"] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
-  border: 1px solid #a2a9b1;
-  border-radius: 2px;
+  border: 1px solid #b9a98f;
+  border-radius: 3px;
+  background-color: #fffefb;
 }
 
 /* Result list page */
@@ -57,14 +61,14 @@ ul {
 
 .result-link {
   display: block;
-  padding: 12px 0;
-  border-bottom: 1px solid #c8ccd1;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd1b8;
 }
 
 .result-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #0645ad;
+  color: #5a3b14;
 }
 
 .result-title:hover {
@@ -73,32 +77,36 @@ ul {
 
 .result-snippet {
   font-size: 0.95rem;
-  color: #4d4d4d;
+  color: #4e4a44;
   margin-top: 5px;
 }
 
 /* Result detail page */
 .topic-summary {
-  background-color: white;
+  background-color: #fffefb;
   padding: 20px 0;
 }
 
 .topic-summary img {
   max-width: 250px;
   float: right;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .topic-summary h1 {
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #3b2e20;
 }
 
 .topic-summary p {
   font-size: 1rem;
   margin-top: 20px;
+  color: #2e2b25;
 }
 
 .other-topics {
@@ -108,26 +116,28 @@ ul {
 .other-topics h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
+  color: #403525;
 }
 
 .other-topics a {
   display: inline-block;
-  background-color: #f8f9fa;
-  color: #0645ad;
-  border: 1px solid #a2a9b1;
-  padding: 5px 10px;
+  background-color: #f5ede0;
+  color: #5a3b14;
+  border: 1px solid #c2b28e;
+  padding: 7px 12px;
   margin-right: 10px;
   margin-bottom: 10px;
-  border-radius: 2px;
+  border-radius: 3px;
   font-size: 0.9rem;
 }
 
 .other-topics a:hover {
-  background-color: #e0e0e0;
+  background-color: #e6ddc8;
 }
 
 a[href="/"] {
   display: inline-block;
   margin-top: 30px;
   font-size: 0.95rem;
+  color: #6b4e16;
 }

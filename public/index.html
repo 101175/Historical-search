@@ -65,24 +65,31 @@
             100% {
                 background-image: url('media/img/forbidden-city.jpg');
             }
-          }
-
+        }
     </style>
 </head>
 
 <body>
     <div class="loader-screen" id="loader">
-    <img id="flag" class="flag" src="" alt="Historical Flag" />
-    <div class="progress" id="progress">0%</div>
-  </div>
+        <img id="flag" class="flag" src="" alt="Historical Flag" />
+        <div class="progress" id="progress">0%</div>
+    </div>
 
-  <div class="background"></div>
-  <div class="search-container" id="search">
-    <h1>Explore History</h1>
-    <form id="searchForm" action="/search" method="GET">
-      <input type="text" name="q" placeholder="Search historical events or figures..." required />
-    </form>
-    
+    <div class="background"></div>
+    <div class="search-container" id="search">
+        <h1>Explore History</h1>
+        <form id="searchForm" action="/search" method="GET">
+            <input type="text" name="q" placeholder="Search historical events or figures..." required />
+        </form>
+        <div class="recent-searches-container">
+            <h2>Recently Searched Topics</h2>
+            <ul id="recent-searches"></ul>
+        </div>
+
+        <div id="user-title" class="user-title-banner"></div>
+    </div>
+
+    <script src="js/search-results.js"></script>
     <script src="js/loader.js"></script>
 </body>
 </html>
