@@ -68,7 +68,7 @@ app.get('/page', async (req, res) => {
 
     try {
       const searchResults = await wiki().search(title.split(' ')[0]);
-      relatedTopics = searchResults.results.filter(t => t !== title).slice(0, 3);
+      relatedTopics = searchResults.results.filter(t => t !== title).slice(0, 10);
     } catch {
       relatedTopics = [];
     }
