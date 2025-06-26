@@ -1,0 +1,79 @@
+body.parchment {
+  background: url('/images/parchment-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif;
+  color: #3e2f1c;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #5a3b14;
+  margin-bottom: 10px;
+}
+
+.back-link {
+  color: #8b5c2f;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+svg#empire-map {
+  width: 90%;
+  max-width: 900px;
+  background-color: #f5e6c8;
+  border: 2px solid #a98c63;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.duchy {
+  fill: #eee;
+  stroke: #8b5c2f;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.controls input,
+.controls button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: 1px solid #a98c63;
+  border-radius: 4px;
+}
+
+.captured {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.captured h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#captured-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}

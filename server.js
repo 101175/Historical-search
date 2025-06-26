@@ -11,6 +11,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/empire', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'empire.html'));
+});
+
 // Search results page
 app.get('/search', async (req, res) => {
   const query = req.query.q;
@@ -89,7 +93,7 @@ app.get('/page', async (req, res) => {
           </div>
 
           <div class="related-cloud-wrapper">
-            <canvas width="500" height="500" id="tagcanvas">
+            <canvas width="800" height="500" id="tagcanvas">
                 <ul id="taglist">
                     ${relatedTopics.map(t => `<li><a href="/page?title=${encodeURIComponent(t)}">${t}</a></li>`).join('')}
                 </ul>
@@ -98,6 +102,7 @@ app.get('/page', async (req, res) => {
 
 
           <a href="/">Home</a>
+          <a href="/empire">Build Your Own Empire</a>
           <script src="js/wordcloud.js"></script>
 
         </body>

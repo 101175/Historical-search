@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Empire</title>
+  <link rel="stylesheet" href="/empire.css" />
+</head>
+<body class="parchment">
+  <header>
+    <h1>🗺️ Shape Your Empire</h1>
+    <a class="back-link" href="/">← Home</a>
+  </header>
+
+  <section class="empire-instructions">
+    <p>Click a duchy to claim it. Choose a color, tag it, and build your alternate history empire.</p>
+  </section>
+
+  <div class="map-container">
+    <!-- Inline your SVG map here -->
+    <!-- Replace this with the actual SVG output image body -->
+    <?xml version="1.0" encoding="UTF-8"?>
+    <svg id="empire-map" viewBox="0 0 1024 1024">
+      <title>Duchies of Medieval Europe</title>
+      <!-- Insert the generated map SVG paths here, example: -->
+      <path id="duchy_france" class="duchy" d="M..." />
+      <path id="duchy_burgundy" class="duchy" d="M..." />
+      <!-- more duchies... -->
+      <image href="media/img/medieval-map.png" x="800" y="800" width="150" height="150" />
+    </svg>
+  </div>
+
+  <div class="controls">
+    <label for="color">Choose color:</label>
+    <input type="color" id="color" name="color" value="#d4af37">
+    <label for="tag">Tag:</label>
+    <input type="text" id="tag" placeholder="e.g. Capital, Fortress" />
+    <button onclick="clearEmpire()">Reset Empire</button>
+  </div>
+
+  <section class="captured">
+    <h2>Your Empire</h2>
+    <ul id="captured-list"></ul>
+  </section>
+
+  <script src="/empire.js"></script>
+</body>
+</html>
